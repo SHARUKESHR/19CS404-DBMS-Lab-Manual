@@ -105,123 +105,192 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+-- Write an SQL query to add two new columns, designation and net_salary, to the table Companies. The designation column should have a data type of varchar(50), and the net_salary column should have a data type of number.
 
 ```sql
--- Paste your SQL code below for Question 1
+-- alter table Companies add column designation varchar(50);
+--alter table Companies add column net_salary number;
 ```
 
 **Output:**
+![image](https://github.com/user-attachments/assets/1d10eaa9-049a-42cd-9014-e489416f2757)
 
-![Output1](output.png)
 
 **Question 2**
 ---
--- Paste Question 2 here
+-- Insert the below data into the Customers table, allowing the City and ZipCode columns to take their default values.
+
+CustomerID  Name          Address
+----------  ------------  ----------
+304         Peter Parker  Spider St      
+
+Note: The City and ZipCode columns will use their default values.
 
 ```sql
--- Paste your SQL code below for Question 2
+-- insert into Customers(CustomerID,Name,Address)
+-- values(304,'Peter Parker','Spider St')
 ```
 
 **Output:**
 
-![Output2](output.png)
+![image](https://github.com/user-attachments/assets/27d283a0-8965-4f06-a72e-e156b042a895)
 
 **Question 3**
 ---
--- Paste Question 3 here
+-- Create a table named Department with the following constraints:
+DepartmentID as INTEGER should be the primary key.
+DepartmentName as TEXT should be unique and not NULL.
+Location as TEXT.
 
 ```sql
--- Paste your SQL code below for Question 3
+--  create table Department(
+-- DepartmentID INTEGER primary key,
+-- DepartmentName TEXT unique not null,
+-- Location TEXT
+)
 ```
 
 **Output:**
 
-![Output3](output.png)
+![image](https://github.com/user-attachments/assets/78be5014-bd1a-44e8-96e4-76a27190b738)
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+-- Create a table named Invoices with the following constraints:
+InvoiceID as INTEGER should be the primary key.
+InvoiceDate as DATE.
+Amount as REAL should be greater than 0.
+DueDate as DATE should be greater than the InvoiceDate.
+OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
 
 ```sql
--- Paste your SQL code below for Question 4
+--create table Invoices(
+--InvoiceID INTEGER primary key,
+--InvoiceDate DATE,
+--Amount REAL,
+--DueDate DATE,
+--OrderID INTEGER,
+--CHECK(Amount >0 and DueDate > InvoiceDate),
+--foreign key (OrderID) references Orders(OrderID)
+)
 ```
 
 **Output:**
+![image](https://github.com/user-attachments/assets/e8e8e924-2585-46ad-a5f8-72b450b60094)
 
-![Output4](output.png)
 
 **Question 5**
 ---
--- Paste Question 5 here
+-- Insert all customers from Old_customers into Customers
+  Table attributes are CustomerID, Name, Address, Email
 
 ```sql
--- Paste your SQL code below for Question 5
+-- insert into Customers(CustomerID, Name, Address, Email)
+-- select CustomerID, Name, Address, Email from Old_customers
 ```
 
 **Output:**
+![image](https://github.com/user-attachments/assets/89d36eef-9895-4f4e-9542-dd2b2d50f5ce)
 
-![Output5](output.png)
 
 **Question 6**
 ---
--- Paste Question 6 here
+-- Create a table named Employees with the following columns:
+
+EmployeeID as INTEGER
+FirstName as TEXT
+LastName as TEXT
+HireDate as DATE
 
 ```sql
--- Paste your SQL code below for Question 6
+-- create table Employees(
+-- EmployeeID INTEGER,
+-- FirstName TEXT,
+-- LastName TEXT,
+-- HireDate DATE
+)
 ```
 
 **Output:**
+![image](https://github.com/user-attachments/assets/162c9230-0a98-4b5a-98d0-e3771687f922)
 
-![Output6](output.png)
 
 **Question 7**
 ---
--- Paste Question 7 here
+-- Create a table named ProjectAssignments with the following constraints:
+AssignmentID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
+AssignmentDate as DATE should be NOT NULL.
 
 ```sql
--- Paste your SQL code below for Question 7
+-- create table ProjectAssignments(
+-- AssignmentID int primary key,
+-- EmployeeID int ,
+-- ProjectID int,
+-- AssignmentDate Date not null,
+-- foreign key (EmployeeID) references Employees(EmployeeID),
+-- foreign key (ProjectID) references Projects(ProjectID)
+)
 ```
 
 **Output:**
+![image](https://github.com/user-attachments/assets/e34d7616-9fbe-403f-88ca-389af486a255)
 
-![Output7](output.png)
 
 **Question 8**
 ---
--- Paste Question 8 here
+-- Write a SQL query for adding a new column named "email" with the datatype VARCHAR(100) to the  table "customer" 
+
+Sample table: customer
 
 ```sql
--- Paste your SQL code below for Question 8
+-- alter table customer add column email VARCHAR(100);
 ```
 
 **Output:**
+![image](https://github.com/user-attachments/assets/c609fb53-122b-4988-8f36-4b05b1a4ec9d)
 
-![Output8](output.png)
 
 **Question 9**
 ---
--- Paste Question 9 here
+--In the Employee table, insert a record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
 
 ```sql
--- Paste your SQL code below for Question 9
+-- insert into Employee (EmployeeID,Name, Position)
+-- values(5,'George Clark','Consultant');
+-- insert into Employee (EmployeeID,Name, Position, Department, Salary)
+-- values(7,'Noah Davis','Manager','HR',60000);
+-- insert into Employee (EmployeeID,Name, Position, Department)
+-- values(8,'Ava Miller','Consultant','IT');
 ```
 
 **Output:**
+![image](https://github.com/user-attachments/assets/c3393393-8769-495b-9ca7-deed8f4b6b50)
 
-![Output9](output.png)
 
 **Question 10**
 ---
--- Paste Question 10 here
+-- Create a table named Products with the following constraints:
+ProductID as INTEGER should be the primary key.
+ProductName as TEXT should be unique and not NULL.
+Price as REAL should be greater than 0.
+StockQuantity as INTEGER should be non-negative.
 
 ```sql
--- Paste your SQL code below for Question 10
+-- create table Products(
+-- ProductID int primary key,
+-- ProductName text unique not null,
+-- Price REAL ,
+-- StockQuantity int,
+-- CHECK(Price>0 and StockQuantity>0)
+)
 ```
 
 **Output:**
+![image](https://github.com/user-attachments/assets/eca26191-b1e1-40db-aa83-8d603ab7cad3)
 
-![Output10](output.png)
 
 
 ## RESULT
